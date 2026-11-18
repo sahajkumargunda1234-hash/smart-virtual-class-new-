@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111a35">
+    <meta name="description" content="A smarter space to learn, teach, and grow.">
+    <title>ClassroomOS — Smart Virtual Classroom</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main id="login-screen" class="login-screen">
+      <section class="login-hero">
+        <a class="brand brand-light" href="#/login" aria-label="ClassroomOS home">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span>classroom<span class="brand-accent">OS</span></span>
+        </a>
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse-dot"></span> YOUR CAMPUS, CONNECTED</span>
+          <h1>Make every<br>lesson <span>count.</span></h1>
+          <p>One thoughtful space for teaching, learning, and everything in between.</p>
+        </div>
+        <div class="hero-note">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>AJ</span><span>MK</span><span>SR</span><span>+</span>
+          </div>
+          <span><strong>One connected campus</strong> for learners building their future</span>
+        </div>
+        <div class="hero-decoration hero-decoration-one"></div>
+        <div class="hero-decoration hero-decoration-two"></div>
+      </section>
+
+      <section class="login-panel">
+        <div class="login-card">
+          <div class="login-heading">
+            <span class="eyebrow eyebrow-dark">WELCOME BACK</span>
+            <h2>Sign in to your campus</h2>
+            <p>Choose your workspace to continue.</p>
+          </div>
+          <form id="login-form" class="login-form">
+            <fieldset class="role-picker">
+              <legend class="sr-only">Choose your role</legend>
+              <label class="role-option is-selected">
+                <input type="radio" name="role" value="student" checked>
+                <span class="role-icon" data-icon="graduation"></span><span>Student</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="faculty">
+                <span class="role-icon" data-icon="book"></span><span>Faculty</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="admin">
+                <span class="role-icon" data-icon="shield"></span><span>Admin</span>
+              </label>
+            </fieldset>
+            <label class="field-label" for="login-email">Email address</label>
+            <div class="input-wrap"><span data-icon="mail"></span><input id="login-email" name="email" type="email" autocomplete="username" placeholder="you@campus.edu" required></div>
+            <label class="field-label" for="login-password">Password</label>
+            <div class="input-wrap"><span data-icon="lock"></span><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="password-toggle" type="button" aria-label="Show password" data-action="toggle-password" data-icon="eye"></button></div>
+            <div id="login-error" class="form-error" role="alert" hidden></div>
+            <button class="button button-primary login-submit" type="submit">Sign in <span data-icon="arrow-right"></span></button>
+          </form>
+          <div class="demo-access">
+            <button id="demo-toggle" class="demo-toggle" type="button" aria-expanded="false">
+              <span data-icon="sparkles"></span> Demo access <span class="demo-chevron" data-icon="chevron-down"></span>
+            </button>
+            <div id="demo-credentials" class="demo-credentials" hidden>
+              <p>Browser-only demo accounts (not secure authentication).</p>
+              <div><span>Student</span><button type="button" data-demo-role="student">student@demo.edu <span data-icon="arrow-up-right"></span></button></div>
+              <div><span>Faculty</span><button type="button" data-demo-role="faculty">faculty@demo.edu <span data-icon="arrow-up-right"></span></button></div>
+              <div><span>Admin</span><button type="button" data-demo-role="admin">admin@demo.edu <span data-icon="arrow-up-right"></span></button></div>
+              <small>Password for all roles: <strong>classroom123</strong></small>
+            </div>
+          </div>
+          <p class="demo-disclaimer"><span data-icon="info"></span> This frontend demo stores data in this browser only. It is not production authentication.</p>
+        </div>
+        <p class="login-footer">© 2026 ClassroomOS <span>·</span> Learn without limits</p>
+      </section>
+    </main>
+
+    <div id="app" class="app-shell" hidden>
+      <div id="sidebar-backdrop" class="sidebar-backdrop" data-action="close-sidebar"></div>
+      <aside id="sidebar" class="sidebar">
+        <a class="brand brand-sidebar" href="#/dashboard">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span>classroom<span class="brand-accent">OS</span></span>
+        </a>
+        <div class="workspace-switcher">
+          <span class="workspace-icon" data-icon="building"></span>
+          <span><strong>Northstar University</strong><small>Learning workspace</small></span>
+          <span class="switch-chevron" data-icon="chevron-down"></span>
+        </div>
+        <nav id="primary-nav" class="primary-nav" aria-label="Main navigation"></nav>
+        <div class="sidebar-bottom">
+          <div class="help-card"><span class="help-icon" data-icon="life-buoy"></span><strong>Need a hand?</strong><small>Explore your demo workspace.</small><button type="button" data-action="show-help">Explore help <span data-icon="arrow-up-right"></span></button></div>
+          <button class="sidebar-user" data-action="open-profile" type="button">
+            <span id="sidebar-avatar" class="avatar avatar-small"></span>
+            <span><strong id="sidebar-name"></strong><small id="sidebar-role"></small></span>
+            <span class="user-menu-icon" data-icon="more-horizontal"></span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="main-shell">
+        <header class="topbar">
+          <button class="icon-button mobile-menu" type="button" aria-label="Open menu" data-action="toggle-sidebar"><span data-icon="menu"></span></button>
+          <div class="breadcrumbs"><span>Workspace</span><span data-icon="chevron-right"></span><strong id="page-breadcrumb">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="global-search"><span data-icon="search"></span><input id="global-search" type="search" placeholder="Search anything..." autocomplete="off"><kbd>Ctrl K</kbd></label>
+            <div id="global-search-results" class="global-search-results" hidden></div>
+            <button class="icon-button topbar-notifications" type="button" aria-label="Notifications" data-action="navigate" data-route="notifications"><span data-icon="bell"></span><i id="notification-dot" class="notification-dot"></i></button>
+            <span class="topbar-divider"></span>
+            <button class="topbar-profile" type="button" data-action="open-profile"><span id="topbar-avatar" class="avatar avatar-top"></span><span><strong id="topbar-name"></strong><small id="topbar-role"></small></span><span data-icon="chevron-down"></span></button>
+          </div>
+        </header>
+        <main id="page-content" class="page-content" tabindex="-1"></main>
+      </div>
+    </div>
+
+    <div id="modal-root"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <input id="material-file-input" type="file" hidden multiple>
+    <script src="./script.js" defer></script>
+  </body>
+</html>
